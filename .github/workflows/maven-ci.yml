@@ -54,7 +54,7 @@ jobs:
   # Uploads dependency graph to GitHub to receive Dependabot alerts 
   update_dependence_graph:
 
-  needs: [maven_test]
+    needs: [maven_test]
 
   - name: Restore cached build
     uses: actions/cache@v3
