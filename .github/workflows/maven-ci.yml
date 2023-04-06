@@ -26,12 +26,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Cache build
-      uses: actions/cache@v3
-      with:
-        key: cached-build-${{github.sha}}
-        path: .
-
     # This invokes the Setup Java JDK GitHub action:
     # https://github.com/marketplace/actions/setup-java-jdk
     - name: Set up JDK 8
