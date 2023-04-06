@@ -45,22 +45,8 @@ jobs:
         name: Jacoco coverage results
         path: target/site/jacoco
 
-    - name: Cache build
-      uses: actions/cache@v3
-      with:
-        key: cached-build-${{github.sha}}
-        path: .
-
   # Uploads dependency graph to GitHub to receive Dependabot alerts 
   update_dependence_graph:
-
-    needs: [maven_test]
-
-  - name: Restore cached build
-    uses: actions/cache@v3
-    with:
-      key: cached-build-${{github.sha}}
-      path: .
 
     runs-on: ubuntu-latest
 
@@ -69,9 +55,6 @@ jobs:
 
     steps:
 
-    
-
     # https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@v2
-
